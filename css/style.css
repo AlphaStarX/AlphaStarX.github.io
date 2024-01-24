@@ -360,6 +360,25 @@ a:focus {
     width: 500px;
 }
 
+.social-menu {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.social-menu li {
+    display: inline-block;
+    margin: 0 10px;
+}
+
+.social-icon {
+    width: 30px;
+    /* Adjust this value as needed */
+    height: auto;
+    vertical-align: middle;
+}
+
 
 /*---------------------------
 ## Responsive
