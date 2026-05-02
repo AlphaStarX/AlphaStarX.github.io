@@ -5,7 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="47d37b68-d59c-46a8-a95f-54628ce5f597" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/img/MultiplayerShooter.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -31,6 +31,10 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="jar://$APPLICATION_HOME_DIR$/lib/modules/intellij.relaxng.jar!/resources/html5-schema/html5/sectional.rnc" root0="FORCE_HIGHLIGHTING" />
   </component>
+  <component name="McpProjectServerCommands">
+    <commands />
+    <urls />
+  </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
@@ -44,8 +48,10 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.MCP Project settings loaded": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
     "git-widget-placeholder": "main",
     "ignore_missing_gitignore": "true",
     "node.js.detected.package.eslint": "true",
@@ -64,7 +70,8 @@
       <option name="presentableId" value="Default" />
       <updated>1760475268127</updated>
       <workItem from="1760475270507" duration="3545000" />
-      <workItem from="1760895931910" duration="5576000" />
+      <workItem from="1760895931910" duration="5858000" />
+      <workItem from="1777740612183" duration="1243000" />
     </task>
     <task id="LOCAL-00001" summary="Updated Experience">
       <option name="closed" value="true" />
@@ -82,7 +89,23 @@
       <option name="project" value="LOCAL" />
       <updated>1760479014954</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Updated Website">
+      <option name="closed" value="true" />
+      <created>1760902332357</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1760902332357</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Fix Issue">
+      <option name="closed" value="true" />
+      <created>1760902446571</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1760902446571</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -94,7 +117,9 @@
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <MESSAGE value="Updated Experience" />
     <MESSAGE value="Updated Resume" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated Resume" />
+    <MESSAGE value="Updated Website" />
+    <MESSAGE value="Fix Issue" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix Issue" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
