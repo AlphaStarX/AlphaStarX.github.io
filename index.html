@@ -1,3 +1,45 @@
+<!--
+=============================================================================
+FILE HEADER: index.html
+=============================================================================
+Purpose:
+  Main entry point and structure for Bhavin Machhi's Gameplay Programmer Portfolio.
+  Contains all layout grids, sections, copy, media modals, and references to CSS/JS.
+
+Responsibilities:
+  - Establishes head metadata, title, favicon, SEO description, and Titillium Web Google font.
+  - Houses the responsive sidebar column (.col-md-3 .col-lg-2) comprising:
+    * Profile Block (avatar wrapper, glitching header, subtitle, availability badge).
+    * Stats block (Years Exp, Projects count, Engines).
+    * Main Navigation menu with anchors mapped to content sections.
+    * Social icons list and Resume download footer button.
+    * Bottom technical specialization HUD summary tag.
+  - Houses the primary scrollable content column (.col-md-9 .col-lg-10) comprising:
+    * Hero Carousel: looping game demo backdrop overlayed with typewriter titles.
+    * Work Experience Timeline: categorized chronological career items with tags.
+    * Skills Matrix: glassmorphic blocks detailing programming languages, engines, tools.
+    * Projects Grid: cards detailing UE5/C++ projects, integrated with video loop hover and Fancybox popups.
+    * Education Cards: university degree info blocks decorated with top border neon accents.
+    * About Me bio write-up and resources section.
+    * Contact info panel and email link.
+    * Site Footer copyright notice.
+
+Dependencies:
+  - Bootstrap v4.1.3 CSS & JS bundles (layout and carousel modules).
+  - jQuery v3.3.1 (interactivity hooks in main.js).
+  - Fancybox v3.3.5 (modal popups for gameplay trailers).
+  - FontAwesome Icons v5.x (inline icons support).
+
+Related Files:
+  - css/style.css: baseline legacy structure.
+  - css/theme-cyber.css: overrides styling to construct the Cyberpunk console theme.
+  - js/main.js: controls interactive states, hover triggers, typewriter loops, and observers.
+
+Usage:
+  Loaded directly by the client browser as index.html. Serves as the landing page
+  for all portfolio visitors.
+=============================================================================
+-->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,9 +47,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Bhavin Machhi">
-    <meta name="description" content="None">
+    <meta name="description" content="Bhavin Machhi - Gameplay Programmer & Technical Gameplay Designer. Specializing in Unreal Engine 5, C++, C#, multiplayer replication, and AI behavior systems.">
 
-    <title>Bhavin Machhi Portfolio</title>
+    <title>Bhavin Machhi | Gameplay Programmer & Technical Designer</title>
     <link href="img/B_Favicon3.png" rel="shortcut icon" type="image/png" />
 
     <!-- Google Font -->
@@ -17,100 +59,116 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/fancybox.min.css">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/theme-cyber.css">
 
 </head>
 
 <body>
     <div class="row no-gutters">
         <div class="col-md-3 col-lg-2 sidebar">
+            <!-- Scanline / HUD overlay -->
+            <div class="sidebar-scanlines" aria-hidden="true"></div>
+
             <div class="sidebar-box p-3 p-md-4">
 
-                <div class="logo">
-                    <a href="index.html" class="site-logo">
-                        <h4 class="text-light">Bhavin Machhi</h4>
-                    </a>
-                    <h6>Gameplay Programmer / Technical Gameplay Designer</h6>
+                <!-- ── Profile Block ── -->
+                <div class="sidebar-profile">
+                    <div class="sidebar-avatar-wrap">
+                        <img src="img/B_SelfRound.png" alt="Bhavin Machhi" class="sidebar-avatar" />
+                        <div class="sidebar-avatar-ring"></div>
+                    </div>
+                    <div class="sidebar-identity">
+                        <a href="index.html" class="site-logo">
+                            <h4 class="sidebar-name" id="sidebar-glitch" data-text="Bhavin Machhi">Bhavin Machhi</h4>
+                        </a>
+                        <p class="sidebar-title">Gameplay Programmer<br><span>/ Technical Gameplay Designer</span></p>
+                        <div class="sidebar-badge">
+                            <span class="badge-dot"></span>
+                            <span class="badge-label">Available for Work</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ── Mini Stats Strip ── -->
+                <div class="sidebar-stats d-none d-md-flex">
+                    <div class="stat-item">
+                        <span class="stat-num">5+</span>
+                        <span class="stat-lbl">Years Exp</span>
+                    </div>
+                    <div class="stat-divider"></div>
+                    <div class="stat-item">
+                        <span class="stat-num">15+</span>
+                        <span class="stat-lbl">Projects</span>
+                    </div>
+                    <div class="stat-divider"></div>
+                    <div class="stat-item">
+                        <span class="stat-num">2</span>
+                        <span class="stat-lbl">Engines</span>
+                    </div>
                 </div>
 
                 <div class="nav-switch">
                     <i class="fa fa-bars"></i>
                 </div>
 
-                <ul class="main-menu mt-md-5">
-                    <!-- <li><a href="index.html">Home</a></li> -->
-
-                    <li><a href="#hero">Home</a></li>
-                    <li><a href="#projects">Projects</a></li>
-                    <li><a href="#info">Work Experience</a></li>
-                    <li><a href="#skills">Skills</a></li>
-                    <li><a href="#education">Education</a></li>
-                    <li><a href="#about">About me</a></li>
-                    <li><a href="#certification">Certifications</a></li>
-                    <li><a href="#resources">Resources</a></li>
-                    <li><a href="#contact">Contact me</a></li>
+                <!-- ── Navigation ── -->
+                <ul class="main-menu">
+                    <li><a href="#hero"         class="nav-link-item"><i class="fa fa-home nav-icon"></i><span>Home</span></a></li>
+                    <li><a href="#projects"     class="nav-link-item"><i class="fa fa-gamepad nav-icon"></i><span>Projects</span></a></li>
+                    <li><a href="#info"         class="nav-link-item"><i class="fa fa-briefcase nav-icon"></i><span>Work Experience</span></a></li>
+                    <li><a href="#skills"       class="nav-link-item"><i class="fa fa-code nav-icon"></i><span>Skills</span></a></li>
+                    <li><a href="#education"    class="nav-link-item"><i class="fa fa-graduation-cap nav-icon"></i><span>Education</span></a></li>
+                    <li><a href="#about"        class="nav-link-item"><i class="fa fa-user nav-icon"></i><span>About me</span></a></li>
+                    <li><a href="#certification" class="nav-link-item"><i class="fa fa-certificate nav-icon"></i><span>Certifications</span></a></li>
+                    <li><a href="#resources"    class="nav-link-item"><i class="fa fa-book nav-icon"></i><span>Resources</span></a></li>
+                    <li><a href="#contact"      class="nav-link-item"><i class="fa fa-envelope nav-icon"></i><span>Contact me</span></a></li>
                 </ul>
 
-<!--                 <div class="social mt-md-5">
-                    <ul class="social-menu list-inline">
-                        <li class="list-inline-item">
-                            <a href="https://www.artstation.com/bhavinmachhi" target="_blank" title="Artstation"> <i class="fab fa-facebook"></i> </a>
+                <!-- ── Social Icons ── -->
+                <div class="sidebar-social d-none d-md-block">
+                    <div class="sidebar-divider"></div>
+                    <ul class="social-menu-new">
+                        <li>
+                            <a href="https://www.linkedin.com/in/bhavinmachhi" target="_blank" class="social-link-new" title="LinkedIn">
+                                <img src="img/linkedin.svg" alt="LinkedIn" class="social-icon-new" />
+                                <span class="social-label-new">LinkedIn</span>
+                            </a>
                         </li>
-                        <li class="list-inline-item">
-                            <a href="https://www.linkedin.com/in/bhavinmachhi/" target="_blank" title="Linkedin"> <i class="fab fa-linkedin"></i> </a>
+                        <li>
+                            <a href="https://www.artstation.com/bhavinmachhi" target="_blank" class="social-link-new" title="ArtStation">
+                                <img src="img/artstation.svg" alt="ArtStation" class="social-icon-new" />
+                                <span class="social-label-new">ArtStation</span>
+                            </a>
                         </li>
-                        <li class="list-inline-item">
-                            <a href="https://github.com/AlphaStarX" target="_blank" title="Github"> <i class="fab fa-github"></i> </a>
+                        <li>
+                            <a href="https://github.com/AlphaStarX" target="_blank" class="social-link-new" title="GitHub">
+                                <img src="img/github.svg" alt="GitHub" class="social-icon-new" />
+                                <span class="social-label-new">GitHub</span>
+                            </a>
                         </li>
                     </ul>
-                </div> -->
+                </div>
 
-        <div class="social">
-            <ul class="social-menu">
-              <li>
-                <a
-                  href="https://www.linkedin.com/in/bhavinmachhi"
-                  target="_blank"
-                  title="Linkedin"
-                >
-                  <img
-                    src="img/linkedin.svg"
-                    alt="Linkedin"
-                    class="social-icon"
-                  />
-                </a>
-              </li>
-              <li>
-                <a
-                  href="https://www.artstation.com/bhavinmachhi"
-                  target="_blank"
-                  title="ArtStation"
-                >
-                  <img
-                    src="img/artstation.svg"
-                    alt="ArtStation"
-                    class="social-icon"
-                  />
-                </a>
-              </li>
-              <li>
-                <a
-                  href="https://github.com/AlphaStarX"
-                  target="_blank"
-                  title="Youtube"
-                >
-                  <img
-                    src="img/github.svg"
-                    alt="GitHub"
-                    class="social-icon"
-                  />
-                </a>
-              </li>
-            </ul>
-          </div>
+                <!-- ── Download CV + Email ── -->
+                <div class="sidebar-footer d-none d-md-block">
+                    <a href="BhavinMachhi_ResumeGameplayProgrammer.pdf" download class="btn-download-cv">
+                        <i class="fa fa-download"></i> Download CV
+                    </a>
+                    <a href="mailto:bhavin19980630@gmail.com" class="sidebar-email">
+                        <i class="fa fa-envelope"></i> bhavin19980630@gmail.com
+                    </a>
+                </div>
 
-                <div class="copyrightxxx d-none d-md-block mt-md-5">
-                    <small><a href="bhavin19980630@gmail.com"><i class="fa fa-envelope"></i> bhavin19980630@gmail.com</a></small> <br>
-                    <small class="text-muted">Modified by Bhavin Machhi</small>
+                <!-- ── Bottom Decorative Panel ── -->
+                <div class="sidebar-bottom-deco d-none d-md-block">
+                    <span class="deco-tagline">// specialization</span>
+                    <ul class="deco-spec-list">
+                        <li>Unreal Engine 5 / C++</li>
+                        <li>Gameplay & AI Systems</li>
+                        <li>Multiplayer Replication</li>
+                        <li>Procedural Generation</li>
+                        <li>Game Ability System (GAS)</li>
+                    </ul>
                 </div>
 
             </div>
@@ -143,9 +201,9 @@
                     </div>
                     <div class="carousel-overlay">
                         <div class="container">
-                            <div class="row pt-5">
+                            <div class="row pt-2">
                                 <div class="col-md-9">
-                                    <div class="text-white py-md-5 mt-xl-3">
+                                    <div class="text-white py-md-2">
                                         <h1>Bhavin Machhi</h1>
                                         <h5>GAME PROGRAMMER [C++ , C#]</h5>
                                         <p class="lead pt-1" style="line-height: 1.5; word-spacing: 1.8px; letter-spacing: 1.3px; text-align: justify; text-justify: auto;" ><b>As an accomplished video game developer holding a Bachelor's degree in Information Technology and specialization in Game and Level Design, I bring more than 2 years of valuable experience in the video game development. Leveraging my extensive expertise in the Unreal engine, I have refined my abilities in producing immersive gaming experiences. My enthusiasm lies in the creation of compelling and captivating games that transport players to novel and enthralling worlds.</b><p>
@@ -160,15 +218,15 @@
             </section>
 
 
+            <hr class="section-strip">
+
             <section id="projects" class="about-section bg-dark py-5">
                 <div class="container">
                     <div class="row mb-4">
                         <div class="col-md-9 pr-md-5 text-white">
                             <h2 class="mb-4">Projects & Work </h2>
-                            <p style="letter-spacing: 1px; font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; text-align: justify;">
+                            <p style="text-align: justify;">
                                 Welcome to my video game projects, made using the powerful Unreal game engine. I put a lot of love and many hours into creating every detail to make the game fun and immersive. The cool graphics and exciting gameplay show what we can do with modern game development.</p>
-                            <!--<h6>PROJECTS INVENTORY</h6>
-                            <a href="project-inventory-Reedham-Patel.xlsx" target="_blank" class="btn btn-dark"> <i class="fa fa-download"></i> Projects Inventory </a>-->
                         </div>
                         <div class="col-md-3">
                             <img class="round-img" src="img/B_AboutImg.png" alt="">
@@ -384,7 +442,6 @@
                                 </div>
                             </div>
                         </div>
-                        -->
 
 
 
@@ -490,7 +547,6 @@
                                 </div>
                             </div>
                         </div>
-                        -->
 
                         <!-- <GoapAI></GoapAI> -->
                         <!-- project -->
@@ -523,315 +579,6 @@
                                 </div>
                             </div>
                         </div>
-
-
-
-                        <!-- <BlockBreaker></BlockBreaker> -->
-                        <!-- project -->
-                        <!--
-                        <div class="col-lg-12 mb-4">
-                            <div class="card project-card h-100">
-                                <div class="row no-gutters h-100">
-                                    <div class="col-md-8">
-                                        <div class="card-body">
-                                            <h6 class="jesse-faden">6</h6>
-                                            <h4> Block-Breaker</h4>
-                                            <h6> C# ,Shader Lab</h6>
-                                            <p>Brick Breaker (platformer) is a Breakout clone ,which the player must smash a wall of bricks by deflecting a bouncing ball with a paddle. 
-                                                The paddle may move horizontally and is controlled with the BlackBerry's trackwheel, the computer's mouse or the touch of a finger (in the case of touchscreen). 
-                                                The player gets 1 lives to start with; a life is lost if the ball hits the bottom of the screen. 
-                                                However In this Game AI Was created that will play game on its own in "GOD MODE"
-                                            </p>
-                                            <a target="_blank" href="https://github.com/ReedhamHackerman/Block-Breaker
-                                            " class="btn btn-primary"> <i class="fa fa-code-branch"></i> View on Github</a>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="project-media h-100">
-                                            <a class="video-link h-100" data-fancybox href="#projectVideo6">
-                                                <img class="cover-img" src="videos/BlockBreaker.jpg" alt="">
-                                                <div class="overlay"><i class="far fa-play-circle"></i></div>
-                                            </a>
-                                            <video id="projectVideo6" controls preload="none" width="720" height="480" style="display:none;">
-                        <source src="videos/Block Breaker.mp4" type="video/mp4">
-                        Your browser doesn't support HTML5 video tag.
-                      </video>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        -->
-
-                        <!-- <Flocking AI></Flocking> -->
-                        <!-- project -->
-                        <!--
-                        <div class="col-lg-12 mb-4">
-                            <div class="card project-card h-100">
-                                <div class="row no-gutters h-100">
-                                    <div class="col-md-8">
-                                        <div class="card-body">
-                                            <h6 class="jesse-faden">7</h6>
-                                            <h4> Flocking AI </h4>
-                                            <h6> Unity3D(C#) </h6>
-                                            <p>Fish Flock is an easy-to-use asset that manage a shoal of fish.
-                                                The fishes move in flock and keep themselves as a group and also avoiding to collide with each other as they swim.
-                                                Also They Follow Predator and Prey relationship , So Big Fishes try to hunt down small fishes and flock of small fishes try to escape
-                                                them also its dependent on the prey's Food attraction factor.
-                                            </p>
-                                            <a target="_blank" href="https://github.com/ReedhamHackerman/Flocking-AI" class="btn btn-primary"> <i class="fa fa-code-branch"></i> View on Github</a>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="project-media h-100">
-                                            <a class="video-link h-100" data-fancybox href="#projectVideo7">
-                                                <img class="cover-img" src="videos/FlockingAI.jpg" alt="">
-                                                <div class="overlay"><i class="far fa-play-circle"></i></div>
-                                            </a>
-                                            <video id="projectVideo7" controls preload="none" width="720" height="480" style="display:none;">
-                        <source src="videos/FlockingAI.mp4" type="video/mp4">
-                        Your browser doesn't support HTML5 video tag.
-                      </video>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        -->
-
-                        <!-- <SpaceBomber></SpaceBomber> -->
-                        <!-- project -->
-                        <!--
-                        <div class="col-lg-12 mb-4">
-                            <div class="card project-card h-100">
-                                <div class="row no-gutters h-100">
-                                    <div class="col-md-8">
-                                        <div class="card-body">
-                                            <h6 class="jesse-faden">8</h6>
-                                            <h4> Space Bomber </h4>
-                                            <h6>C#,Scriptable Objects, Unity3D </h6>
-                                            <p>Space Bomber is Top-down -3d-shooter game. IN the Game player has to survive waves of enemies and get the high score.
-                                                There was UI indication in top right that indicate the player score.
-                                                Also there were variety of bomb in the game which used to spawn after some time. 
-                                            </p>
-                                            <a target="_blank" href="https://github.com/isomorphica/ISI-J06-Project-Jeux2001A" class="btn btn-primary"> <i class="fa fa-code-branch"></i> View on Github</a>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="project-media h-100">
-                                            <a class="video-link h-100" data-fancybox href="#projectVideo8">
-                                                <img class="cover-img" src="videos/ComingSoon.jpg" alt="">
-                                                <div class="overlay"><i class="far fa-play-circle"></i></div>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        -->
-
-                        <!-- <A Star Game></A> -->
-                        <!-- project -->
-                        <!-- <div class="col-lg-12 mb-4">
-                            <div class="card project-card h-100">
-                                <div class="row no-gutters h-100">
-                                    <div class="col-md-8">
-                                        <div class="card-body">
-                                            <h6 class="jesse-faden">7</h6>
-                                            <h4> Spineless: A Blank Tale</h4>
-                                            <h6> Unity3D VR (C#)</h6>
-                                            <p>Virtual Reality Game made in Unity3d, where you are on a wheelchair and you shoot through enemies and kill the boss to win. It features a indoor level, ranged and melee enemies, one boss with 3 skills, stun
-                                                gun, sword and pick able items and power ups. </p>
-                                            <a target="_blank" href="https://github.com/mattstg/VRISIEN" class="btn btn-primary"> <i class="fa fa-code-branch"></i> View on Github</a>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="project-media h-100">
-                                            <a class="video-link h-100" data-fancybox href="#projectVideo7">
-                                                <img class="cover-img" src="videos/VRGame.jpg" alt="">
-                                                <div class="overlay"><i class="far fa-play-circle"></i></div>
-                                            </a>
-                                            <video id="projectVideo7" controls preload="none" width="720" height="480" style="display:none;">
-                        <source src="videos/VRGame.mp4" type="video/mp4">
-                        Your browser doesn't support HTML5 video tag.
-                      </video>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div> -->
-
-                        <!-- <LastSoul></LastSoul> -->
-                        <!-- project -->
-                        <!--
-                        <div class="col-lg-12 mb-4">
-                            <div class="card project-card h-100">
-                                <div class="row no-gutters h-100">
-                                    <div class="col-md-8">
-                                        <div class="card-body">
-                                            <h6 class="jesse-faden">9</h6>
-                                            <h4>Last Soul
-                                            </h4>
-                                            <h6>C#, Unity2D
-                                            </h6>
-                                            <p>Last Soul is 2d platformer game where Player has to reach top of the map in order to complete level while avoiding obstacles and gathering souls.
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="project-media h-100">
-                                            <a class="video-link h-100" data-fancybox href="#projectVideo9">
-                                                <img class="cover-img" src="videos/TheLastSoul.png" alt="">
-                                                <div class="overlay"><i class="far fa-play-circle"></i></div>
-                                            </a>
-                                            <video id="projectVideo9" controls preload="none" width="720" height="480" style="display:none;">
-                        <source src="videos/The Last Soul.mp4" type="video/mp4">
-                        Your browser doesn't support HTML5 video tag.
-                      </video>
-                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        -->
-
-                        <!-- <GoupSoup></GoupSoup> -->
-                        <!-- project -->
-                        <!--
-                        <div class="col-lg-12 mb-4">
-                            <div class="card project-card h-100">
-                                <div class="row no-gutters h-100">
-                                    <div class="col-md-8">
-                                        <div class="card-body">
-                                            <h6 class="jesse-faden">10</h6>
-                                            <h4> Goup Soup </h4>
-                                            <h6>C#, Top-Down Single Flow, Object pool </h6>
-                                            <p>Goup soup is a top-down 2D game , where player has to destroy zombies by throwing exact matching spell of their color on them.</p>
-                                            <a target="_blank" href="https://drive.google.com/file/d/1lmwEDM6He4DfOeXvEyWahK3UVPihAJEQ/view?usp=sharing" class="btn btn-primary"> <i class="fa fa-code-branch"></i> View on Drive</a>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="project-media h-100">
-                                            <a class="video-link h-100" data-fancybox href="#projectVideo10">
-                                                <img class="cover-img" src="videos/GoupSoup.png" alt="">
-                                                <div class="overlay"><i class="far fa-play-circle"></i></div>
-                                            </a>
-                                            <video id="projectVideo10" controls preload="none" width="720" height="480" style="display:none;">
-                        <source src="videos/GoupSoupEdited.mp4" type="video/mp4">
-                        Your browser doesn't support HTML5 video tag.
-                      </video>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        -->
-                        <!-- <SpaceX></SpaceX> -->
-                        <!-- project -->
-                        <!--
-                        <div class="col-lg-12 mb-4">
-                            <div class="card project-card h-100">
-                                <div class="row no-gutters h-100">
-                                    <div class="col-md-8">
-                                        <div class="card-body">
-                                            <h6 class="jesse-faden">11</h6>
-                                            <h4> Space X</h4>
-                                            <h6> Unity3D(C#)</h6>
-                                            <p>SpaceX Is 3D Side view Game , Where end goal is reach to opposite site platform without touching any moving obstacle in the game.
-                                            </p>
-                                            <a target="_blank" href="https://github.com/ReedhamHackerman/SpaceX-Game-Unity
-                                            " class="btn btn-primary"> <i class="fa fa-code-branch"></i> View on Github</a>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="project-media h-100">
-                                            <a class="video-link h-100" data-fancybox href="#projectVideo11">
-                                                <img class="cover-img" src="videos/RocketBooster.png" alt="">
-                                                <div class="overlay"><i class="far fa-play-circle"></i></div>
-                                            </a>
-                                            <video id="projectVideo11" controls preload="none" width="720" height="480" style="display:none;">
-                        <source src="videos/RocketBooster.mp4" type="video/mp4">
-                        Your browser doesn't support HTML5 video tag.
-                      </video>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        -->
-
-                        <!-- <BattleshipGameJava></BattleshipGameJava> -->
-                        <!-- project -->
-                        <!--
-                        <div class="col-lg-12 mb-4">
-                            <div class="card project-card h-100">
-                                <div class="row no-gutters h-100">
-                                    <div class="col-md-8">
-                                        <div class="card-body">
-                                            <h6 class="jesse-faden">12</h6>
-                                            <h4> Battleship Game Java </h4>
-                                            <h6> Java, Java-Swing</h6>
-                                            <p>Battleship (also Battleships or Sea Battle[1]) is a strategy type guessing game for two players.
-                                                 It is played on ruled grids (paper or board) on which each player's fleet of ships (including battleships) are marked. 
-                                                 The locations of the fleets are concealed from the other player. 
-                                                 Players alternate turns calling "shots" at the other player's ships, and the objective of the game is to destroy the opposing player's fleet.
-                                            </p>
-                                            <a target="_blank" href="https://github.com/ReedhamHackerman/BattleShip-Game-Java
-                                            " class="btn btn-primary"> <i class="fa fa-code-branch"></i> View on Github</a>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="project-media h-100">
-                                            <a class="video-link h-100" data-fancybox href="#projectVideo12">
-                                                <img class="cover-img" src="videos/BattleShipJava.png" alt="">
-                                                <div class="overlay"><i class="far fa-play-circle"></i></div>
-                                            </a>
-                                            <video id="projectVideo12" controls preload="none" width="720" height="480" style="display:none;">
-                        <source src="videos/BattleShipJava.mp4" type="video/mp4">
-                        Your browser doesn't support HTML5 video tag.
-                      </video>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        -->
-
-
-                        <!-- <Color Texture></Color> -->
-                        <!-- project -->
-                        <!--
-                        <div class="col-lg-12 mb-4">
-                            <div class="card project-card h-100">
-                                <div class="row no-gutters h-100">
-                                    <div class="col-md-8">
-                                        <div class="card-body">
-                                            <h6 class="jesse-faden">13</h6>
-                                            <h4> Editor tools</h4>
-                                            <h6>Unity Editor Scripting, C#, Scriptable Assets, Generic Class Generation</h6>
-                                            <p> Color tool -Editor tool that help to color the texture and then later on that texture can be applied on different 3D objects.
-                                                Editor tool - Editor Tool that can be extended beyond creating a prefabs based on Number of factors.
-                                            </p>
-                                            <a target="_blank" href="https://github.com/ReedhamHackerman/Asset-Creation
-                                            " class="btn btn-primary"> <i class="fa fa-code-branch"></i> View on Github</a>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="project-media h-100">
-                                            <a class="video-link h-100" data-fancybox href="#projectVideo13">
-                                                <img class="cover-img" src="videos/EditorTools.png" alt="">
-                                                <div class="overlay"><i class="far fa-play-circle"></i></div>
-                                            </a>
-                                            <video id="projectVideo13" controls preload="none" width="720" height="480" style="display:none;">
-                        <source src="videos/Editor Tools.mp4" type="video/mp4">
-                        Your browser doesn't support HTML5 video tag.
-                      </video>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        -->
                     </div>
                 </div>
 
@@ -841,142 +588,120 @@
             
                 
                 
+
+            <hr class="section-strip">
+
 <section id="info" class="facts-section future-mode py-5" style="background: #1a1d22 url('img/B_Slide23.jpg'); background-size: cover;">
                 <div class="container">
                     <div class="future-title">
                        <!-- <h2 class="text-black-100">Work Experience</h2>-->
-                    </div>
-                    <div class="row">
-<!--
-                        <div class="col-md-6 mb-4">
-                            <div class="future-item h-100">
-                                <h4 class="mb-2"> Education </h4>
-                                <p>
-                                    <small><strong>2020-(Pursuing)</strong></small> <br> Video Game Programming, Attestation of College Studies <br>
-                                    <span class="text-muted">ISI, L'institut Supérieur d'Informatique  - Montreal, Canada</span> <br>
-                                </p>
-                                <p>
-                                    <small><strong>20bvw15-2019</strong></small> <br> Information and Technology, Bachelors Degree <br>
-                                    <span class="text-muted">Gujarat Technical University -  Gujarat, India</span> <br>
-                                </p>
-                            </div>
-                        </div>
--->
-<!--This Section is For Dynasty Loop-->
-
-                        <div class="col-lg-12 mb-4">
-                            <div class="future-item h-100">
-                                <h3 class="mb-2"> Work Experience </h3>
-                                <p style="margin-bottom: 0">
-                                    <strong>Lionbridge Games, FQA Test Associate 2 </strong><br><small><strong>Mar 2026 – Present</strong></small><br>
-                                    <small><strong>Video Game Functionality Testing</strong>
-                                        <h5>&#x2022; <strong>Main responsibilities</strong> </h5>
-                                        <p style="margin-left: 40px">
-
+                    </div>                    <div class="row">
+                        <div class="col-12">
+                            <h2 class="text-white mb-5">Work Experience</h2>
+                            <div class="timeline-container">
+                                
+                                <!-- Timeline Item: Lionbridge Games -->
+                                <div class="timeline-item">
+                                    <div class="timeline-content">
+                                        <h4 class="mb-2" style="color: var(--accent-cyan);">Lionbridge Games</h4>
+                                        <h5 class="mb-1" style="color: #fff;">FQA Test Associate 2</h5>
+                                        <p class="mb-3 text-muted"><i class="fa fa-calendar-alt"></i> Mar 2026 – Present</p>
+                                        <small class="d-block mb-3" style="color: var(--text-secondary);"><strong>Video Game Functionality Testing</strong></small>
+                                        <p style="margin-left: 20px; color: var(--text-primary);">
                                             - Testing a live service title with a complex architecture, including backend systems, live events, seasonal content, and real-time updates.
                                             <br>- Identifying defects across client and server systems, documenting precise reproduction steps, logs, and impact in bug tracking tools.
                                             <br>- Creating and executing structured test plans and checklists to validate gameplay features, backend integrations, and content updates.
                                             <br>- Performing Functional, Smoke, Regression, Performance, and Ad hoc testing across frequent builds, patches, and hotfixes.
                                             <br>- Validating live features such as matchmaking, leaderboards, in-game store, microtransactions, and online services stability.
                                             <br>- Conducting multiplayer and cross-platform testing across Android, IOS, Windows, PS4, PS5, Xbox, XBSX, Switch and Switch 2.
-                                        </p></small>
-                                    <small><strong>Software/Tech:</strong> Jira, Confluence, QMetry Test Management.</small>
-                                    <br>
-                                </p>
-                            </div>
-                        </div>
+                                        </p>
+                                        <div class="mt-3">
+                                            <small><strong>Software/Tech:</strong> Jira, Confluence, QMetry Test Management.</small>
+                                        </div>
+                                    </div>
+                                </div>
 
-
-
-                        <div class="col-lg-12 mb-4">
-                            <div class="future-item h-100">
-                              <!--  <h3 class="mb-2"> Work Experience </h3> -->
-                                <p style="margin-bottom: 0">
-                                    <strong>TwinCats Games, Junior Technical Gameplay Designer </strong><br><small><strong>Sept 2025 – Dec 2025</strong></small><br>
-                                    <small><strong>Designing Gameplay Mechanics</strong>
-                                        <h5>&#x2022; <strong>Main responsibilities</strong> </h5>
-                                        <p style="margin-left: 40px">
-
+                                <!-- Timeline Item: TwinCats Games -->
+                                <div class="timeline-item">
+                                    <div class="timeline-content">
+                                        <h4 class="mb-2" style="color: var(--accent-cyan);">TwinCats Games</h4>
+                                        <h5 class="mb-1" style="color: #fff;">Junior Technical Gameplay Designer</h5>
+                                        <p class="mb-3 text-muted"><i class="fa fa-calendar-alt"></i> Sept 2025 – Dec 2025</p>
+                                        <small class="d-block mb-3" style="color: var(--text-secondary);"><strong>Designing Gameplay Mechanics</strong></small>
+                                        <p style="margin-left: 20px; color: var(--text-primary);">
                                             - Implement and iterate on core gameplay systems and features using Blueprint scripting and lightweight code to deliver fun, responsive player interactions.
                                             <br>- Bridge design and engineering by prototyping mechanics, integrating assets, and debugging gameplay issues to uphold design intent and performance targets.
                                             <br>- Collaborate cross‑functionally with design, engineering, art, audio, and QA to ship polished features on time with clear documentation and playtest-driven improvements.
                                             <br>- Profile and optimize gameplay features for frame-time budgets, memory where applicable.
                                             <br>- Write clear design specs, technical docs, and feature checklists; keep documentation and task boards up to date.
                                             <br>- Participate in playtests; capture notes, propose actionable changes, and validate fixes quickly.
-                                        </p></small>
-                                    <small><strong>Software/Tech:</strong> Unreal Engine 5, Blueprints, Profiling, Design Documents, Sourcetree.</small>
-                                    <br>
-                                </p>
-                            </div>
-                        </div>
-                        
-                        
-                        
-                        
-                        <div class="col-lg-12 mb-4">
-                            <div class="future-item h-100">
-                                <!-- <h3 class="mb-2"> Work Experience </h3>-->
-                                 <p style="margin-bottom: 0">
-                                      <strong>SIDE (PTW), FQA Tester </strong><br><small><strong>Sept 2023 – Sept 2025</strong></small><br>
-                                     <small><strong>Video Game Functionality Testing</strong>
-                                      <h5>&#x2022; <strong>Main responsibilities</strong> </h5> 
-                                         <p style="margin-left: 40px">
-                                       
-                                        - Identifying flaws or bugs, outlining precise reproduction steps, and succinctly recording this information in the database.
-                                     <br>- Working with multiple bug tracking databases.
-                                     <br>- Following test plans/checklists to ensure functionality and performance testing.
-                                     <br>- Functional, Smoke, Regression, Performance, Ad hoc Testing.
-                                             <br>- Experience working on Single Player, OpenWorld, Live Service, Mobile and Multiplatform Games.
-                                     <br>- Testing across various platforms such as Android, IOS, Windows, PS4, PS5, XBOX, XBSX, Steam Deck  and the Nintendo Switch.
-                                     </p></small>
-                                     <small><strong>Software/Tech:</strong> JIRA, TestRail, Confluence, GameBench, Excel.</small>
-                                     <br>
-                                 </p> 
-                             </div>
-                         </div>
- <!--                        This Section is For hausvalet-->
-                        <div class="col-lg-12 mb-4">
-                            <div class="future-item h-100">
-                                <p style="margin-bottom: 0">
-                                    <strong>LaSalle College, Game and Level Design (AEC)</strong><br><small><strong>May 2022 - Aug 2023</strong></small> <br>
-                                    <small><strong>Worked on mulitple video game projects</strong>
-                                     <h5>&#x2022; <strong>Main responsibilities</strong> </h5> 
-                                        <p style="margin-left: 40px">
-                                     - Worked as Gameplay programmer for our final project "Urban Ascend" Parkour game - 2 Player Splitscreen.
-                                    <br>- Created Dialogue system for our team project "Dimension Anarchy".
-                                    <br>- Developed and implemented AI behaviors for Enemies and NPC Characters using Behavior Tree.
-                                    <br>- Built puzzles, portal mechanics, fighting system for our Endless runner game.
-                                    <br>- Crafted beautiful environment with lighting for my game "Enigma Ball".
-                                    <br>- Worked with project managers to create, optimize and maintain project code.
-                                            <br><!--<strong>Application Link: </strong><a href="https://apps.apple.com/ca/app/hausvalet-vr/id1596353498">https://apps.apple.com/ca/app/hausvalet-vr/id1596353498</a>-->
-                                    </p></small>
-                                    <small><strong>Software/Tech:</strong> C++, Unreal Engine, Blueprints, Houdini, Perforce, Rider IDE.</small>
-                                    <br>
-                                </p>
-                                
-                            </div>
-                        </div>
-                      
-<!--
-                        This Section is For Maruti games
-                        
--->
-                         <div class="col-lg-12 mb-4">
-                            <div class="future-item h-100">
-                                <p style="margin-bottom: 0">
-                                    <strong>Puthur Infotech, Technical Support Engineer </strong><br><small><strong>June 2021 - March 2022</strong></small> <br>
-                                    <small><strong>Assistance with the technical aspects of softwares</strong>
-                                     <h5>&#x2022; <strong>Main responsibilities</strong> </h5> 
-                                        <p style="margin-left: 40px">
-                                     - Provide technical assistance and support regarding software and hardware issues.
-                                    <br>- Diagnose and analyse complex technical issue by collaborating with cross-functional teams.
-                                    <br>- Escalate and collaborate with the development and product teams to resolve critical issues that require further investigation or code-level solutions.
-                                    <br>- Maintain documentation of interactions, troubleshooting steps, and solutions in the database for future reference and team-wide accessibility.
-                                    </p></small>
-                                    <small><strong>Software/Tech:</strong> Excel, Anydesk.</small>
-                                    <br>
-                                </p>
-                                
+                                        </p>
+                                        <div class="mt-3">
+                                            <small><strong>Software/Tech:</strong> Unreal Engine 5, Blueprints, Profiling, Design Documents, Sourcetree.</small>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Timeline Item: SIDE (PTW) -->
+                                <div class="timeline-item">
+                                    <div class="timeline-content">
+                                        <h4 class="mb-2" style="color: var(--accent-cyan);">SIDE (PTW)</h4>
+                                        <h5 class="mb-1" style="color: #fff;">FQA Tester</h5>
+                                        <p class="mb-3 text-muted"><i class="fa fa-calendar-alt"></i> Sept 2023 – Sept 2025</p>
+                                        <small class="d-block mb-3" style="color: var(--text-secondary);"><strong>Video Game Functionality Testing</strong></small>
+                                        <p style="margin-left: 20px; color: var(--text-primary);">
+                                            - Identifying flaws or bugs, outlining precise reproduction steps, and succinctly recording this information in the database.
+                                            <br>- Working with multiple bug tracking databases.
+                                            <br>- Following test plans/checklists to ensure functionality and performance testing.
+                                            <br>- Functional, Smoke, Regression, Performance, Ad hoc Testing.
+                                            <br>- Experience working on Single Player, OpenWorld, Live Service, Mobile and Multiplatform Games.
+                                            <br>- Testing across various platforms such as Android, IOS, Windows, PS4, PS5, XBOX, XBSX, Steam Deck  and the Nintendo Switch.
+                                        </p>
+                                        <div class="mt-3">
+                                            <small><strong>Software/Tech:</strong> JIRA, TestRail, Confluence, GameBench, Excel.</small>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Timeline Item: LaSalle College -->
+                                <div class="timeline-item">
+                                    <div class="timeline-content">
+                                        <h4 class="mb-2" style="color: var(--accent-cyan);">LaSalle College</h4>
+                                        <h5 class="mb-1" style="color: #fff;">Game and Level Design (AEC)</h5>
+                                        <p class="mb-3 text-muted"><i class="fa fa-calendar-alt"></i> May 2022 - Aug 2023</p>
+                                        <small class="d-block mb-3" style="color: var(--text-secondary);"><strong>Worked on multiple video game projects</strong></small>
+                                        <p style="margin-left: 20px; color: var(--text-primary);">
+                                            - Worked as Gameplay programmer for our final project "Urban Ascend" Parkour game - 2 Player Splitscreen.
+                                            <br>- Created Dialogue system for our team project "Dimension Anarchy".
+                                            <br>- Developed and implemented AI behaviors for Enemies and NPC Characters using Behavior Tree.
+                                            <br>- Built puzzles, portal mechanics, fighting system for our Endless runner game.
+                                            <br>- Crafted beautiful environment with lighting for my game "Enigma Ball".
+                                            <br>- Worked with project managers to create, optimize and maintain project code.
+                                        </p>
+                                        <div class="mt-3">
+                                            <small><strong>Software/Tech:</strong> C++, Unreal Engine, Blueprints, Houdini, Perforce, Rider IDE.</small>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Timeline Item: Puthur Infotech -->
+                                <div class="timeline-item">
+                                    <div class="timeline-content">
+                                        <h4 class="mb-2" style="color: var(--accent-cyan);">Puthur Infotech</h4>
+                                        <h5 class="mb-1" style="color: #fff;">Technical Support Engineer</h5>
+                                        <p class="mb-3 text-muted"><i class="fa fa-calendar-alt"></i> June 2021 - March 2022</p>
+                                        <small class="d-block mb-3" style="color: var(--text-secondary);"><strong>Assistance with the technical aspects of softwares</strong></small>
+                                        <p style="margin-left: 20px; color: var(--text-primary);">
+                                            - Provide technical assistance and support regarding software and hardware issues.
+                                            <br>- Diagnose and analyse complex technical issue by collaborating with cross-functional teams.
+                                            <br>- Escalate and collaborate with the development and product teams to resolve critical issues that require further investigation or code-level solutions.
+                                            <br>- Maintain documentation of interactions, troubleshooting steps, and solutions in the database for future reference and team-wide accessibility.
+                                        </p>
+                                        <div class="mt-3">
+                                            <small><strong>Software/Tech:</strong> Excel, Anydesk.</small>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         
@@ -988,83 +713,218 @@
                 </div>
             </section>
             <!-- Services section -->
+            <hr class="section-strip">
+
             <section id="skills" class="services-section bg-light py-5">
                 <div class="container">
-                    <h2 class="mb-4">My Skills</h2>
-                    <div class="row skills-box">
+                    <h2 class="mb-5 skills-heading">My Skills</h2>
+                    <!-- Skills Category Grid -->
+                    <div class="row skills-category-grid">
 
-                        <div class="col-lg-4 col-md-6 mb-4 pr-md-4">
-                            <div class="icon my-3">
-                                <i class="fa fa-users fa-3x"></i>
-                            </div>
-                            <div class="service-content">
-                                <h4>Good Team Player</h4>
-                                <p class="mb-4" style="text-align: justify; color: #4d4d4d;">Highly adaptable, flexible professional who embraces teamwork, but also enjoys working independently.</p>
-                               <br>
-                               <br>
-                               <br>
-                                <h6>Programming Languages</h6>
-                                <p>C++, C#, SFML, Java <br>HTML, CSS</p>
-                               
-                                <h6>Concepts</h6>
-                                 <p> Object-oriented programming (OOP), Data Structures, Multi-Threading, Game Loop, Multiplayer Programming, Procedural Generation, Debugging and Profiling. </p>
-                                 <h6>IDE </h6>
-                                <p>Visual Studio, JetBrains Rider, VSCode<br>
-                                  Sublime</p>
-                                <h6>Management</h6>
-                                <p>Perforce, GitHub, Jira, Trello</p>
+                        <!-- Category 1: Core Programming -->
+                        <div class="col-lg-4 col-md-6 mb-4">
+                            <div class="skill-category-card">
+                                <div class="skill-cat-header">
+                                    <div class="skill-cat-icon">
+                                        <i class="fa fa-code"></i>
+                                    </div>
+                                    <div class="skill-cat-title">
+                                        <h4>Core Programming</h4>
+                                        <p class="skill-cat-desc">Languages, paradigms &amp; dev tools</p>
+                                    </div>
+                                </div>
+                                <div class="skill-cat-body">
+                                    <div class="skill-group">
+                                        <span class="skill-group-label"><i class="fa fa-terminal"></i> Languages</span>
+                                        <div class="tech-badge-container">
+                                            <span class="tech-badge">C++</span>
+                                            <span class="tech-badge">C#</span>
+                                            <span class="tech-badge">Java</span>
+                                            <span class="tech-badge">SFML</span>
+                                            <span class="tech-badge">HTML</span>
+                                            <span class="tech-badge">CSS</span>
+                                        </div>
+                                    </div>
+                                    <div class="skill-group">
+                                        <span class="skill-group-label"><i class="fa fa-microchip"></i> Concepts</span>
+                                        <div class="tech-badge-container">
+                                            <span class="tech-badge">OOP</span>
+                                            <span class="tech-badge">Data Structures</span>
+                                            <span class="tech-badge">Multi-Threading</span>
+                                            <span class="tech-badge">Game Loop</span>
+                                            <span class="tech-badge">Debugging</span>
+                                            <span class="tech-badge">Profiling</span>
+                                        </div>
+                                    </div>
+                                    <div class="skill-group">
+                                        <span class="skill-group-label"><i class="fa fa-laptop"></i> IDEs &amp; Editors</span>
+                                        <div class="tech-badge-container">
+                                            <span class="tech-badge">Visual Studio</span>
+                                            <span class="tech-badge">Rider</span>
+                                            <span class="tech-badge">VSCode</span>
+                                            <span class="tech-badge">Sublime</span>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
 
-                        <div class="col-lg-4 col-md-6 mb-4 pr-md-4">
-                            <div class="icon my-3">
-                                <i class="fa fa-laptop-code fa-3x"></i>
-                            </div>
-                            <div class="service-content">
-                                <h4>I'm an adept programmer and love learning</h4>
-                                <p class="mb-4" style="text-align: justify; color: #4d4d4d;">I am very fast learner and gaming is my passion.
-                                    I always look forward to learn new technologies and tools in game development field.</p>
-                                <br>
-                                <h6>Game Programming Patterns </h6>
-                                <p> Factory, Singleton,
-                                    Observer, Object Pooling, Flyweight,
-                                    Spatial Partition, State, Component
-                                     </p>
-                                <h6>Game AI</h6>
-                                <p>Genetic Rule-Based AI, Finite State Machines, Pathfinding AI (A*), Behavior Trees, Flocking AI, GOAP</p>
-                                <h6>Database </h6>
-                                <p>MySQL Server, MS Excel</p>
-                               <!-- <h6>Serilization </h6>
-                                <p>XML, JSON, Binary, Text</p> -->
-                                <h6>Other Software's </h6>
-                                <p>Blender, Houdini, 3dsMax, Maya</p>
+                        <!-- Category 2: Game Engines -->
+                        <div class="col-lg-4 col-md-6 mb-4">
+                            <div class="skill-category-card skill-card-accent-pink">
+                                <div class="skill-cat-header">
+                                    <div class="skill-cat-icon skill-icon-pink">
+                                        <i class="fa fa-gamepad"></i>
+                                    </div>
+                                    <div class="skill-cat-title">
+                                        <h4>Game Engines</h4>
+                                        <p class="skill-cat-desc">Unreal Engine 5 &amp; Unity deep expertise</p>
+                                    </div>
+                                </div>
+                                <div class="skill-cat-body">
+                                    <div class="skill-group">
+                                        <span class="skill-group-label skill-label-pink"><i class="fa fa-star"></i> Unreal Engine 5</span>
+                                        <div class="tech-badge-container">
+                                            <span class="tech-badge badge-pink">C++</span>
+                                            <span class="tech-badge badge-pink">Blueprints</span>
+                                            <span class="tech-badge badge-pink">GAS</span>
+                                            <span class="tech-badge badge-pink">Animation System</span>
+                                            <span class="tech-badge badge-pink">AI Behavior Trees</span>
+                                            <span class="tech-badge badge-pink">Niagara VFX</span>
+                                            <span class="tech-badge badge-pink">MetaSound</span>
+                                            <span class="tech-badge badge-pink">PCG</span>
+                                            <span class="tech-badge badge-pink">UI / UMG</span>
+                                            <span class="tech-badge badge-pink">Materials</span>
+                                            <span class="tech-badge badge-pink">Lighting</span>
+                                            <span class="tech-badge badge-pink">Plugins / Tools</span>
+                                        </div>
+                                    </div>
+                                    <div class="skill-group">
+                                        <span class="skill-group-label skill-label-pink"><i class="fa fa-cube"></i> Unity Engine</span>
+                                        <div class="tech-badge-container">
+                                            <span class="tech-badge badge-pink">Editor Scripting</span>
+                                            <span class="tech-badge badge-pink">Unity Physics</span>
+                                            <span class="tech-badge badge-pink">Animations</span>
+                                            <span class="tech-badge badge-pink">NavMesh</span>
+                                            <span class="tech-badge badge-pink">Materials &amp; Lighting</span>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
 
-                        <div class="col-lg-4 col-md-6 mb-4 pr-md-4">
-                            <div class="icon my-3">
-                                <i class="fa fa-gamepad fa-3x"></i>
+                        <!-- Category 3: AI & Systems -->
+                        <div class="col-lg-4 col-md-6 mb-4">
+                            <div class="skill-category-card skill-card-accent-gold">
+                                <div class="skill-cat-header">
+                                    <div class="skill-cat-icon skill-icon-gold">
+                                        <i class="fa fa-brain"></i>
+                                    </div>
+                                    <div class="skill-cat-title">
+                                        <h4>AI &amp; Gameplay Systems</h4>
+                                        <p class="skill-cat-desc">Intelligent behavior &amp; multiplayer systems</p>
+                                    </div>
+                                </div>
+                                <div class="skill-cat-body">
+                                    <div class="skill-group">
+                                        <span class="skill-group-label skill-label-gold"><i class="fa fa-robot"></i> Game AI</span>
+                                        <div class="tech-badge-container">
+                                            <span class="tech-badge badge-gold">Behavior Trees</span>
+                                            <span class="tech-badge badge-gold">Finite State Machines</span>
+                                            <span class="tech-badge badge-gold">Pathfinding (A*)</span>
+                                            <span class="tech-badge badge-gold">GOAP</span>
+                                            <span class="tech-badge badge-gold">Flocking AI</span>
+                                            <span class="tech-badge badge-gold">Genetic Rule-Based AI</span>
+                                        </div>
+                                    </div>
+                                    <div class="skill-group">
+                                        <span class="skill-group-label skill-label-gold"><i class="fa fa-network-wired"></i> Multiplayer</span>
+                                        <div class="tech-badge-container">
+                                            <span class="tech-badge badge-gold">Multiplayer Programming</span>
+                                            <span class="tech-badge badge-gold">Procedural Generation</span>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="service-content">
-                                <h4>Empathic listener and Persuasive speaker</h4>
-                                <p class="mb-4" style="text-align: justify; color: #4d4d4d;">I am good listener and 
-                                    I tend to believe detail-oriented listening is the key to understand someone's way of approaching different problems.</p>
-                                <br>
-                                <h6>Game Engines</h6>
-                                <p>Unreal Engine, Unity Engine</p>
-                                <h6>Unreal Engine</h6>
-                                <p> C++, Blueprints, Animation System, Level Composition, AI Behavior Tree, GAS, UI, Lighting, Procedural Content Generation, Materials, Meta Sound, Niagara, Plugins (Tools Development).</p>
-                                   <h6> Unity Engine</h6> 
-                                   <p>
-                                       Editor Scripting, Editor Variables/Menus, Unity Physics system, Animations, NavMesh, Materials and Lighting.
-                                   </p>
-                               
+                        </div>
+
+                        <!-- Category 4: Design Patterns -->
+                        <div class="col-lg-4 col-md-6 mb-4">
+                            <div class="skill-category-card skill-card-accent-teal">
+                                <div class="skill-cat-header">
+                                    <div class="skill-cat-icon skill-icon-teal">
+                                        <i class="fa fa-sitemap"></i>
+                                    </div>
+                                    <div class="skill-cat-title">
+                                        <h4>Design Patterns</h4>
+                                        <p class="skill-cat-desc">Architecture &amp; scalable game patterns</p>
+                                    </div>
+                                </div>
+                                <div class="skill-cat-body">
+                                    <div class="skill-group">
+                                        <span class="skill-group-label skill-label-teal"><i class="fa fa-layer-group"></i> Game Programming Patterns</span>
+                                        <div class="tech-badge-container">
+                                            <span class="tech-badge badge-teal">Factory</span>
+                                            <span class="tech-badge badge-teal">Singleton</span>
+                                            <span class="tech-badge badge-teal">Observer</span>
+                                            <span class="tech-badge badge-teal">Object Pooling</span>
+                                            <span class="tech-badge badge-teal">Flyweight</span>
+                                            <span class="tech-badge badge-teal">Spatial Partition</span>
+                                            <span class="tech-badge badge-teal">State</span>
+                                            <span class="tech-badge badge-teal">Component</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Category 5: Tools, 3D & Pipeline -->
+                        <div class="col-lg-4 col-md-6 mb-4">
+                            <div class="skill-category-card skill-card-accent-purple">
+                                <div class="skill-cat-header">
+                                    <div class="skill-cat-icon skill-icon-purple">
+                                        <i class="fa fa-tools"></i>
+                                    </div>
+                                    <div class="skill-cat-title">
+                                        <h4>Tools &amp; Pipeline</h4>
+                                        <p class="skill-cat-desc">3D software, databases &amp; project management</p>
+                                    </div>
+                                </div>
+                                <div class="skill-cat-body">
+                                    <div class="skill-group">
+                                        <span class="skill-group-label skill-label-purple"><i class="fa fa-cubes"></i> 3D &amp; Art Tools</span>
+                                        <div class="tech-badge-container">
+                                            <span class="tech-badge badge-purple">Blender</span>
+                                            <span class="tech-badge badge-purple">Houdini</span>
+                                            <span class="tech-badge badge-purple">3ds Max</span>
+                                            <span class="tech-badge badge-purple">Maya</span>
+                                        </div>
+                                    </div>
+                                    <div class="skill-group">
+                                        <span class="skill-group-label skill-label-purple"><i class="fa fa-code-branch"></i> Version Control</span>
+                                        <div class="tech-badge-container">
+                                            <span class="tech-badge badge-purple">Perforce</span>
+                                            <span class="tech-badge badge-purple">GitHub</span>
+                                        </div>
+                                    </div>
+                                    <div class="skill-group">
+                                        <span class="skill-group-label skill-label-purple"><i class="fa fa-tasks"></i> Project Management</span>
+                                        <div class="tech-badge-container">
+                                            <span class="tech-badge badge-purple">Jira</span>
+                                            <span class="tech-badge badge-purple">Trello</span>
+                                            <span class="tech-badge badge-purple">MySQL Server</span>
+                                            <span class="tech-badge badge-purple">MS Excel</span>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
 
                     </div>
                 </div>
             </section>
+
+            <hr class="section-strip">
 
             <section id="education" class="facts-section future-mode py-5" style="background: #1a1d22 url('img/B_Slide15.jpg'); background-size: cover;">
                 <div class="container">
@@ -1100,6 +960,8 @@
             
             <!-- Facts section -->
 
+            <hr class="section-strip">
+
             <section id="about" class="bg-dark  py-5">
                 <div class="container" >
                     <div class="row">
@@ -1122,6 +984,8 @@
                     </div>
                 </div>
             </section>
+
+            <hr class="section-strip">
 
             <section id="certification" class="about-section bg-white py-5">
                 <div class="container">
@@ -1201,6 +1065,8 @@
             
  
              <!-- Resources section -->
+            <hr class="section-strip">
+
             <section id="resources" class="about-section bg-white py-5">
                 <div class="container">
                     <div class="row">
@@ -1223,6 +1089,8 @@
             </section>
 
             <!-- Contact section -->
+            <hr class="section-strip">
+
             <section id="contact" class="contact-section bg-light py-5">
                 <div class="container">
                     <div class="row">
@@ -1246,6 +1114,26 @@
             <!-- Footer top section -->
            
         </div>
+
+            <!-- ── Site Footer / Copyright ── -->
+            <footer class="site-footer">
+                <div class="site-footer-strip"></div>
+                <div class="site-footer-inner">
+                    <div class="footer-left">
+                        <span class="footer-name">Bhavin Machhi</span>
+                        <span class="footer-role">Gameplay Programmer &amp; Technical Gameplay Designer</span>
+                    </div>
+                    <div class="footer-center">
+                        <span class="footer-copy">&copy; <span id="footer-year"></span> Bhavin Machhi. All Rights Reserved.</span>
+                    </div>
+                    <div class="footer-right">
+                        <a href="https://www.linkedin.com/in/bhavinmachhi" target="_blank" class="footer-social" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://github.com/AlphaStarX" target="_blank" class="footer-social" title="GitHub"><i class="fab fa-github"></i></a>
+                        <a href="https://www.artstation.com/bhavinmachhi" target="_blank" class="footer-social" title="ArtStation"><i class="fas fa-palette"></i></a>
+                    </div>
+                </div>
+            </footer>
+
     </div>
 
     <div class="back-to-top"> <i class="fa fa-angle-double-up"></i> </div>

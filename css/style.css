@@ -1,10 +1,34 @@
-/*----------------------------------------*/
+/*
+ * =============================================================================
+ * FILE HEADER: css/style.css
+ * =============================================================================
+ * Purpose:
+ *   Legacy Base Template Stylesheet for the Game Developer Portfolio.
+ *   Provides the underlying grid overrides, default layouts, typography defaults,
+ *   anchor behaviors, responsive layout blocks, and general utility styles.
+ *
+ * Responsibilities:
+ *   - Configures box-sizing normalization rules across all DOM elements.
+ *   - Controls core link styling, hover colors, and focus rings.
+ *   - Declares baseline dimensions for standard portfolio layouts (content height, sidebar).
+ *   - Establishes media query breaks for mobile navigation toggle states.
+ *   - Defines styling for classic containers (project items, accordions, carousel items).
+ *
+ * Dependencies:
+ *   - Bootstrap Grid & Utility Library (v4+) - relies on standard col grids.
+ *   - FontAwesome CSS v4/5 - references font files for nav icons.
+ *
+ * Related Files:
+ *   - index.html: contains layout columns (.col-md-3, .col-lg-2) matching these definitions.
+ *   - css/theme-cyber.css: overrides and enhancements matching cyberpunk theme.
+ *   - js/main.js: relies on styles for .back-to-top and .main-menu animation hooks.
+ *
+ * Usage:
+ *   Loaded in the <head> block of index.html. Followed immediately by theme-cyber.css,
+ *   which acts as the master custom visual override layer.
+ * =============================================================================
+ */
 
-
-/* Template default CSS */
-
-
-/*----------------------------------------*/
 
 .card-body p {
     letter-spacing: 1px;

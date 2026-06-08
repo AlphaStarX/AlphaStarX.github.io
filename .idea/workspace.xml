@@ -6,7 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="47d37b68-d59c-46a8-a95f-54628ce5f597" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,7 +70,7 @@
       <updated>1760475268127</updated>
       <workItem from="1760475270507" duration="3545000" />
       <workItem from="1760895931910" duration="5858000" />
-      <workItem from="1777740612183" duration="1243000" />
+      <workItem from="1777740612183" duration="1416000" />
     </task>
     <task id="LOCAL-00001" summary="Updated Experience">
       <option name="closed" value="true" />
@@ -105,7 +104,15 @@
       <option name="project" value="LOCAL" />
       <updated>1760902446571</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Updated work experience">
+      <option name="closed" value="true" />
+      <created>1777741947022</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1777741947022</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -119,7 +126,8 @@
     <MESSAGE value="Updated Resume" />
     <MESSAGE value="Updated Website" />
     <MESSAGE value="Fix Issue" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix Issue" />
+    <MESSAGE value="Updated work experience" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated work experience" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
