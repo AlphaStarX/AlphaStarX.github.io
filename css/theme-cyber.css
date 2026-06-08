@@ -117,30 +117,31 @@ html, body {
 
   /* Scale down hero typography to fit small mobile viewports */
   .hero-section h1 {
-    font-size: 2.2rem !important;
-    margin-bottom: 8px !important;
+    font-size: 2.0rem !important;
+    margin-bottom: 6px !important;
   }
   
   .hero-section h5 {
-    font-size: 1.05rem !important;
-    letter-spacing: 1px !important;
+    font-size: 0.95rem !important;
+    letter-spacing: 0.5px !important;
   }
   
   .hero-section .lead {
-    font-size: 0.88rem !important;
-    line-height: 1.5 !important;
-    margin-bottom: 15px !important;
+    font-size: 0.84rem !important;
+    line-height: 1.45 !important;
+    margin-bottom: 12px !important;
   }
   
   /* Push hero text down to clear the fixed mobile header bar */
   .carousel-overlay {
-    padding-top: 110px !important;
+    padding-top: 95px !important;
   }
   
   /* Expand mobile carousel container height to comfortably host layout flow */
   .carousel .carousel-item {
-    height: 520px !important;
+    height: 550px !important;
   }
+
 
   /* Prevent vertical collapse of project thumbnails when stacked */
   .project-media {
